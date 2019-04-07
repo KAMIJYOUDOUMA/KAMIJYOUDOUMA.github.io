@@ -9,8 +9,8 @@ abbrlink: 20008
 date: 2018-05-01 15:51:30
 ---
 
-### 如何整合MyBatis
-#### 1、pom依赖
+# 如何整合MyBatis
+## 1、pom依赖
 ```
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -41,7 +41,7 @@ date: 2018-05-01 15:51:30
             <version>1.1.9</version>
         </dependency>
 ```
-#### 2、添加配置
+## 2、添加配置
 ```
 spring.datasource.name=mysql_test
 spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
@@ -77,8 +77,8 @@ pagehelper.reasonable=true
 pagehelper.supportMethodsArguments=true
 pagehelper.params=count=countSql
 ```
-#### 3、自动生成Mapper
-##### 添加Mybatis的自动生成插件
+## 3、自动生成Mapper
+### 添加Mybatis的自动生成插件
 ```
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
@@ -103,7 +103,7 @@ pagehelper.params=count=countSql
                 </dependencies>
             </plugin>
 ```
-##### 配置Mybatis的generatorConfig
+### 配置Mybatis的generatorConfig
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
@@ -135,7 +135,7 @@ pagehelper.params=count=countSql
 </generatorConfiguration>
 ```
 执行插件会自动生成实体Bean，Mapper接口和对应的xml文件。
-#### 5、写个简单的Controller触发调用
+## 5、写个简单的Controller触发调用
 ```
 @RestController
 public class CityController {

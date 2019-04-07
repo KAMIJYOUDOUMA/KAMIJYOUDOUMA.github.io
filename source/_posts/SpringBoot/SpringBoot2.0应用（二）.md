@@ -10,12 +10,12 @@ date: 2018-04-05 15:51:30
 ---
 
 > 本篇开始将具体介绍SpringBoot如何整合其它项目。
-### 如何创建SpringBoot项目
+# 如何创建SpringBoot项目
 访问https://start.spring.io/。
 ![](https://user-gold-cdn.xitu.io/2018/9/30/1662971c8efd3efc?w=1240&h=576&f=png&s=109816)
 依次选择构建工具Maven Project、语言java、Spring Boot版本2.0.5，点击Generate Project下载项目压缩包，解压后倒入到ide中即可。（idea集成了SpringBoot，可直接创建项目）
 
-### 如何整合ActiveMQ
+# 如何整合ActiveMQ
 1、添加spring-boot-starter-activemq依赖
 ```
 		<dependency>
@@ -89,7 +89,7 @@ Sample message
 
 ---
 以上例子使用的是SpringBoot内部的ActiveMQ，实际使用时肯定会用外部的ActiveMQ。
-### 如何连接外部的ActiveMQ
+# 如何连接外部的ActiveMQ
 1、添加依赖
 ```
 		<dependency>
@@ -112,7 +112,7 @@ spring.activemq.send-timeout=3000
 Message was sent to the Queue
 Sample message
 ```
-### 如何使用topic
+# 如何使用topic
 1、在SampleActiveMQApplication中添加：
 
 ```

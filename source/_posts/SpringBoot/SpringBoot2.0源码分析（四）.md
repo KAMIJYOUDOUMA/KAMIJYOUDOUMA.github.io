@@ -10,7 +10,7 @@ date: 2018-04-18 15:51:30
 ---
 SpringBoot具体整合rabbitMQ可参考：[SpringBoot2.0应用（四）：SpringBoot2.0之spring-data-jpa](https://juejin.im/post/5bd86ec4e51d45763a7b20b8)
 
-### JpaRepositories自动注入
+# JpaRepositories自动注入
 当项目中存在`org.springframework.data.jpa.repository.JpaRepository`类，并且已经注入过数据源`javax.sql.DataSource`，同时没有注入过`org.springframework.data.jpa.repository.config.JpaRepositoryConfigExtension`和`org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean`时，会通过`@Import`注解导入`org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfigureRegistrar`，由它完成对JPA的支持。`JpaRepositoriesAutoConfigureRegistrar`又继承自`AbstractRepositoryConfigurationSourceSupport`。来看下`AbstractRepositoryConfigurationSourceSupport`的具体内容。
 ```
 public abstract class AbstractRepositoryConfigurationSourceSupport
@@ -35,7 +35,7 @@ public abstract class AbstractRepositoryConfigurationSourceSupport
 }
 ```
 可以看出，到`AbstractRepositoryConfigurationSourceSupport`对`Repository`的Bean进行了定义。下面来具体看看Repositoryd的创建。
-### Repository的创建
+# Repository的创建
 我们先来看下`RepositoryConfigurationDelegate`的`registerRepositoriesIn`方法。
 ```
 	public List<BeanComponentDefinition> registerRepositoriesIn(BeanDefinitionRegistry registry,

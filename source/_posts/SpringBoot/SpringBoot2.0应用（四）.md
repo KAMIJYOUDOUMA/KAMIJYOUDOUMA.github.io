@@ -9,8 +9,8 @@ abbrlink: 20006
 date: 2018-04-17 15:51:30
 ---
 
-### 如何整合spring data jpa
-#### 1、pom依赖
+# 如何整合spring data jpa
+## 1、pom依赖
 ```
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -21,14 +21,14 @@ date: 2018-04-17 15:51:30
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 ```
-#### 2、添加配置
+## 2、添加配置
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=true
 spring.datasource.username=root
 spring.datasource.password=1234
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ```
-#### 3、创建dto对象
+## 3、创建dto对象
 ```
 @Entity
 public class City implements Serializable {
@@ -54,7 +54,7 @@ public class City implements Serializable {
     ......
 }
 ```
-#### 4、创建操作数据的Repository对象
+## 4、创建操作数据的Repository对象
 ```
 public interface CityRepository extends Repository<City, Long> {
 
@@ -67,7 +67,7 @@ public interface CityRepository extends Repository<City, Long> {
 
 }
 ```
-#### 5、写个简单的Controller触发调用
+## 5、写个简单的Controller触发调用
 ```
 @Controller
 public class CityController {

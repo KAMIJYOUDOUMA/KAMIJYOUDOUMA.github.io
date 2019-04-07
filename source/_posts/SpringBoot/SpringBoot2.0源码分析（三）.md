@@ -9,7 +9,7 @@ abbrlink: 20005
 date: 2018-04-12 15:51:30
 ---
 
-### RabbitMQ自动注入
+# RabbitMQ自动注入
 当项目中存在`org.springframework.amqp.rabbit.core.RabbitTemplate`和`com.rabbitmq.client.Channel`着两个类时，SpringBoot将RabbitMQ需要使用到的对象注册为Bean，供项目注入使用。一起看一下`RabbitAutoConfiguration`类。
 ```
 @Configuration
@@ -57,7 +57,7 @@ public class RabbitAutoConfiguration {
 ```
 `RabbitAutoConfiguration`使和RabbitMQ相关的配置生效，并根据相关属性创建和RabbitMQ的连接，并依赖连接工厂创建`rabbitTemplate`。
 `RabbitAutoConfiguration`同时导入了`RabbitAnnotationDrivenConfiguration`，注入了`rabbitListenerContainerFactory`。
-### RabbitMQ的Queue，Exchange和Routing Key关系创建
+# RabbitMQ的Queue，Exchange和Routing Key关系创建
 先看一个例子：
 ```
     @Bean
@@ -90,7 +90,7 @@ public class RabbitAutoConfiguration {
 		});
 	}
 ```
-### 消息发送
+# 消息发送
 以下面的发送为例：
 ```
     rabbitTemplate.convertAndSend(MQConst.TOPIC_EXCHANGE, MQConst.TOPIC_KEY1, "from key1");
@@ -125,7 +125,7 @@ public class RabbitAutoConfiguration {
         connection.flush();
     }
 ```
-### 消息接收
+# 消息接收
 先看一个消费的事例：
 ```
 @Component

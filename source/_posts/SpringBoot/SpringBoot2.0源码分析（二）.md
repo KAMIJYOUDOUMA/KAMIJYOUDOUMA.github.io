@@ -8,7 +8,7 @@ comments: true
 abbrlink: 20003
 date: 2018-04-06 15:51:30
 ---
-### ActiveMQ自动注入
+# ActiveMQ自动注入
 当项目中存在`javax.jms.Message`和`org.springframework.jms.core.JmsTemplate`着两个类时，SpringBoot将ActiveMQ需要使用到的对象注册为Bean，供项目注入使用。一起看一下`JmsAutoConfiguration`类。
 ```
 @Configuration
@@ -56,7 +56,7 @@ public class JmsAutoConfiguration {
 ```
 `RabbitAutoConfiguration`主要注入了`jmsMessagingTemplate`和`jmsTemplate`。
 `RabbitAutoConfiguration`同时导入了`RabbitAnnotationDrivenConfiguration`，注入了`jmsListenerContainerFactory`。
-### 消息发送
+# 消息发送
 以下面的发送为例：
 ```
     jmsMessagingTemplate.convertAndSend(this.queue, msg);
@@ -80,7 +80,7 @@ public class JmsAutoConfiguration {
 	}
 ```
 首先创建一个MessageProducer的实例，接着将最初的`org.springframework.messaging.Message`转换成`javax.jms.Message`，再将消息委托给producer进行发送。
-### 消息接收
+# 消息接收
 先看一个消费的事例：
 ```
 @Component

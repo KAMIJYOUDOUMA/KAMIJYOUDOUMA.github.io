@@ -9,15 +9,15 @@ abbrlink: 20004
 date: 2018-04-11 15:51:30
 ---
 
-### 如何整合RabbitMQ
-#### 1、添加spring-boot-starter-amqp
+# 如何整合RabbitMQ
+## 1、添加spring-boot-starter-amqp
 ```
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 ```
-#### 2、添加配置
+## 2、添加配置
 ```
 spring.rabbitmq.host=localhost
 spring.rabbitmq.port=5672
@@ -27,7 +27,7 @@ spring.rabbitmq.publisher-confirms=true
 spring.rabbitmq.dynamic=true
 spring.rabbitmq.cache.connection.mode=channel
 ```
-#### 3、注入队列
+## 3、注入队列
 ```
 @Configuration
 public class RabbitConfig {
@@ -37,7 +37,7 @@ public class RabbitConfig {
     }
 }
 ```
-#### 4、创建操作数据的Repository对象
+## 4、创建操作数据的Repository对象
 ```
 interface CityRepository extends Repository<City, Long> {
 
@@ -50,7 +50,7 @@ interface CityRepository extends Repository<City, Long> {
 
 }
 ```
-#### 5、创建消费者
+## 5、创建消费者
 ```
 @Component
 public class RabbitConsumer {
@@ -61,7 +61,7 @@ public class RabbitConsumer {
     }
 }
 ```
-#### 6、启动主类
+## 6、启动主类
 ```
 @SpringBootApplication
 @EnableScheduling
@@ -77,8 +77,8 @@ Sun Sep 30 16:30:35 CST 2018: hello
 ```
 到此，一个简单的`SpringBoot2.0`集成`RabbitMQ`就完成了。
 熟悉`RabbitMQ`的小伙伴们应该知道，`RabbitMQ`在一般的队列基础上，增加了`ExChange`的概念。`ExChange`有四种类型：Direct, Topic, Headers and Fanout。其中Headers实际很少使用，Direct较为简单。接下来将详细介绍如何使用topic和Fanout。
-### Topic Exchange
-#### 1、配置Topic规则
+# Topic Exchange
+## 1、配置Topic规则
 ```
 @Configuration
 public class TopicRabbitConfig {
@@ -111,7 +111,7 @@ public class TopicRabbitConfig {
     }
 }
 ```
-#### 2、配置消费者
+## 2、配置消费者
 ```
 @Component
 public class TopicConsumer {
@@ -129,7 +129,7 @@ public class TopicConsumer {
     }
 }
 ```
-#### 3、生产消息
+## 3、生产消息
 在Producer类中添加：
 ```
         // Topic
@@ -142,8 +142,8 @@ queue:topic.message2,message:from keys
 queue:topic.message1,message:from key1
 queue:topic.message2,message:from key1
 ```
-### Fanout Exchange
-#### 1、配置Fanout规则
+# Fanout Exchange
+## 1、配置Fanout规则
 ```
 @Configuration
 public class FanoutRabbitConfig {
@@ -173,7 +173,7 @@ public class FanoutRabbitConfig {
     }
 }
 ```
-#### 2.配置消费者
+## 2.配置消费者
 ```
 @Component
 public class FanoutConsumer {
@@ -191,7 +191,7 @@ public class FanoutConsumer {
     }
 }
 ```
-#### 3、生产消息
+## 3、生产消息
 在Producer类中添加：
 ```
         // FanOut
