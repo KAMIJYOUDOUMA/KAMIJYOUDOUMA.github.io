@@ -16,7 +16,7 @@ date: 2019-04-07
 `NioEventLoopGroup`继承自`MultithreadEventLoopGroup`，多提供了两个方法`setIoRatio`和`rebuildSelectors`，一个用于设置`NioEventLoop`用于IO处理的时间占比，另一个是重新构建Selectors，来处理epoll空轮询导致CPU100%的bug。这个两个的用处在介绍`NioEventLoop`的时候在详细介绍。其它的方法都在接口中有定义，先看下`EventExecutorGroup`。
 # EventExecutorGroup
 `EventExecutorGroup`继承自`ScheduledExecutorService`和`Iterable`。这意味着`EventExecutorGroup`拥有定时处理任务的能力，同时本身可以迭代。它提供的方法有：
-```java
+```
     /**
      * 是否所有事件执行器都处在关闭途中或关闭完成
      */
@@ -48,7 +48,7 @@ date: 2019-04-07
 `EventLoopGroup`继承自`EventExecutorGroup`，它和`EventExecutorGroup`想比多了注册`Channel`和`ChannelPromise`，同时重新next方法返回`EventLoop`。
 # MultithreadEventExecutorGroup
 创建`NioEventLoopGroup`时，最终都会调用`MultithreadEventExecutorGroup`的构造方法。
-```java
+```
     protected MultithreadEventExecutorGroup(int nThreads, Executor executor,
                                             EventExecutorChooserFactory chooserFactory, Object... args) {
         // 线程数必须大于0

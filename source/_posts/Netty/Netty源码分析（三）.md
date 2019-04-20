@@ -14,7 +14,7 @@ date: 2019-03-27
 `EventLoopGroup`负责出人`EventLoop`，`AddressResolverGroup`负责给`EventLoop`解析服务器地址。
 # 客户端连接远程服务器
 连接远程服务器，会先check引导类（Bootstrap）的group有没有设置以及生成channel的工厂，之后再调用doResolveAndConnect方法。
-```java
+```
     private ChannelFuture doResolveAndConnect(final SocketAddress remoteAddress, final SocketAddress localAddress) {
         // 初始化并注册一个channel，并将chanelFuture返回
         final ChannelFuture regFuture = initAndRegister();

@@ -12,7 +12,7 @@ date: 2019-03-23
 >作为当前最流行的网络通信框架，Netty在互联网领域大放异彩，本系列将详细介绍Netty(4.1.22.Final)。
 # 代码事例
 ## 服务端
-```java
+```
 public final class EchoServer {
     // 从启动参数判断是否使用ssl
     static final boolean SSL = System.getProperty("ssl") != null;
@@ -61,7 +61,7 @@ public final class EchoServer {
 }
 ```
 ## 客户端
-```java
+```
 public final class EchoClient {
     // 获取是否使用ssl
     static final boolean SSL = System.getProperty("ssl") != null;

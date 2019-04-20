@@ -16,7 +16,7 @@ date: 2019-03-25
 `ServerBootstrap`主要包括两部分：`bossGroup`和`workerGroup`。其中`bossGroup`主要用于绑定端口，接收来自客户端的请求，接收到请求之后，就会把这些请求交给`workGroup`去处理。就像现实中的老板和员工一样，自己开个公司（绑定端口），到外面接活（接收请求），使唤员工干活（让worker去处理）。
 # 端口绑定
 端口绑定之前，会先check引导类（ServerBootstrap）的bossGroup和workerGroup有没有设置，之后再调用doBind。
-```java
+```
     private ChannelFuture doBind(final SocketAddress localAddress) {
         // 初始化并注册一个channel，并将chanelFuture返回
         final ChannelFuture regFuture = initAndRegister();
@@ -87,7 +87,7 @@ date: 2019-03-25
     }
 ```
 channel的初始化方法：
-```java
+```
     void init(Channel channel) throws Exception {
         // 获取bossChannel的可选项Map
         final Map<ChannelOption<?>, Object> options = options0();
@@ -137,7 +137,7 @@ channel的初始化方法：
     }
 ```
 channel的注册方法，最终是调用doRegister，不同的channel有所不同，下面以Nio为例：
-```java
+```
     protected void doRegister() throws Exception {
         boolean selected = false;
         for (; ; ) {
@@ -158,7 +158,7 @@ channel的注册方法，最终是调用doRegister，不同的channel有所不�
 ```
 ## 绑定端口
 最终调用的是NioServerSocketChannel的doBind方法。
-```java
+```
     protected void doBind(SocketAddress localAddress) throws Exception {
         if (PlatformDependent.javaVersion() >= 7) {
             javaChannel().bind(localAddress, config.getBacklog());
