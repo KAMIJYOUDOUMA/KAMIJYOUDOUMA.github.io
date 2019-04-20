@@ -9,8 +9,6 @@ abbrlink: 40003
 date: 2019-04-07
 ---
 
-![](https://user-gold-cdn.xitu.io/2019/4/7/169f6c318ca4de65?w=815&h=1200&f=jpeg&s=74035)
----
 >无论服务端或客户端启动时都用到了`NioEventLoopGroup`，从名字就可以看出来它是`NioEventLoop`的组合，是Netty多线程的基石。
 
 # 类结构
